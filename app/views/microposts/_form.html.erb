@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_field :content %>
+    <%= f.text_area :content, :id => "Content", :cols => 50, :rows => 10 %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.number_field :user_id, :min => 1, :max => User.last.id%>
   </div>
   <div class="actions">
     <%= f.submit %>
