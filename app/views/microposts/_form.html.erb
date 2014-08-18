@@ -17,7 +17,10 @@
   </div>
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id, :min => 1, :max => User.last.id%>
+    <!--%= f.number_field :user_id, :min => 1, :max => User.last.id%-->
+  	<!--%= f.label User.find(:user_id).name rescue "Not Found" %-->
+  	<!--%= f.collection_select :micropost, :user_id, Micropost.all, :user_id, :user_id, :prompt => 'Select' %-->
+  	<%= select("micropost", "user_id", User.all.collect {|user| [ user.name, user.id ] }, {prompt: 'Select user'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
